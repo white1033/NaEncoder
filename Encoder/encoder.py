@@ -1,6 +1,6 @@
+KEY = '@'
 LINKER = chr(127)
 
-<<<<<<< HEAD:encoder.py
 
 # Type 1
 def make_words_2_keys(words):
@@ -21,8 +21,6 @@ def make_keys_2_char(keys):
 
 
 # Type 2
-=======
->>>>>>> upstream/master:Encoder/encoder.py
 def make_words_2_codes(words):
     return LINKER.join(make_char_2_code(c) for c in words)
 
@@ -45,6 +43,7 @@ def make_char_2_code(char):
     else:
         code = ""
     return code
+
 
 def make_code_2_char(code):
     if code == " ":
@@ -70,11 +69,11 @@ def ascii_table():
             character = chr(ascii)
         else:
             character = unicode(chr(ascii), "latin1")
-        
+
         if ascii > 32:
             count += 1
             print "ASCII: " + str(ascii) + " -> " + character + "   ",
             if count % 7 == 0:
                 print ""
-    
+
     print ""
