@@ -1,36 +1,11 @@
 LINKER = chr(127)
 
-<<<<<<< HEAD:encoder.py
-
-# Type 1
-def make_words_2_keys(words):
-    return LINKER.join(make_char_2_key(c) for c in words)
-
-
-def make_keys_2_words(keys_string):
-    keys_list = keys_string.split(LINKER)
-    return ''.join(make_keys_2_char(keys) for keys in keys_list)
-
-
-def make_char_2_key(char):
-    return KEY * ord(char)
-
-
-def make_keys_2_char(keys):
-    return chr(len(keys))
-
-
-# Type 2
-=======
->>>>>>> upstream/master:Encoder/encoder.py
 def make_words_2_codes(words):
     return LINKER.join(make_char_2_code(c) for c in words)
-
 
 def make_codes_2_words(codes):
     codes_list = codes.split(LINKER)
     return ''.join(make_code_2_char(code) for code in codes_list)
-
 
 def make_char_2_code(char):
     ascii = ord(char)
@@ -70,11 +45,9 @@ def ascii_table():
             character = chr(ascii)
         else:
             character = unicode(chr(ascii), "latin1")
-        
         if ascii > 32:
             count += 1
             print "ASCII: " + str(ascii) + " -> " + character + "   ",
             if count % 7 == 0:
                 print ""
-    
     print ""
