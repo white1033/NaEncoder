@@ -69,11 +69,9 @@ def ascii_table():
             character = chr(ascii)
         else:
             character = unicode(chr(ascii), "latin1")
-
         if ascii > 32:
             count += 1
             print "ASCII: " + str(ascii) + " -> " + character + "   ",
             if count % 7 == 0:
                 print ""
-
     print ""
