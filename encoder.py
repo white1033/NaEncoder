@@ -4,25 +4,16 @@ LINKER = chr(127)
 
 # Type 1
 def make_words_2_keys(words):
-    keys = ""
-    for c in words:
-        k = make_char_2_key(c)
-        keys += (k + LINKER)
-    return keys
+    return LINKER.join(make_char_2_key(c) for c in words)
 
 
 def make_keys_2_words(keys_string):
-    words = ""
-    L = keys_string.split(LINKER)
-    for keys in L:
-        words += make_keys_2_char(keys)
-    return words
+    keys_list = keys_string.split(LINKER)
+    return ''.join(make_keys_2_char(keys) for keys in keys_list)
 
 
 def make_char_2_key(char):
-    ascii = ord(char)
-    keys = KEY * ascii
-    return keys
+    return KEY * ord(char)
 
 
 def make_keys_2_char(keys):
@@ -31,19 +22,12 @@ def make_keys_2_char(keys):
 
 # Type 2
 def make_words_2_codes(words):
-    codes = ""
-    for c in words:
-        code = make_char_2_code(c)
-        codes += (code + LINKER)
-    return codes
+    return LINKER.join(make_char_2_code(c) for c in words)
 
 
 def make_codes_2_words(codes):
-    words = ""
-    L = codes.split(LINKER)
-    for code in L:
-        words += make_code_2_char(code)
-    return words
+    codes_list = codes.split(LINKER)
+    return ''.join(make_code_2_char(code) for code in codes_list)
 
 
 def make_char_2_code(char):
