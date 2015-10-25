@@ -1,6 +1,6 @@
-KEY = "@"
 LINKER = chr(127)
 
+<<<<<<< HEAD:encoder.py
 
 # Type 1
 def make_words_2_keys(words):
@@ -21,6 +21,8 @@ def make_keys_2_char(keys):
 
 
 # Type 2
+=======
+>>>>>>> upstream/master:Encoder/encoder.py
 def make_words_2_codes(words):
     return LINKER.join(make_char_2_code(c) for c in words)
 
@@ -38,13 +40,16 @@ def make_char_2_code(char):
         code = chr(ascii-65) * 2
     elif 98 <= ascii < 127:
         code = chr(ascii-97) * 3
+    elif ascii == 32:
+        code = " "
     else:
         code = ""
     return code
 
-
 def make_code_2_char(code):
-    if len(code) == 1:
+    if code == " ":
+        char = " "
+    elif len(code) == 1:
         char = chr(ord(code[:1])+33)
     elif len(code) == 2:
         char = chr(ord(code[:1])+65)
@@ -56,20 +61,20 @@ def make_code_2_char(code):
 
 
 def ascii_table():
-    print("====[ ASCII Table ]====")
+    print("====================================================================================================================================")
+    print("[ ASCII TABLE ]  -- Display characters for Ascii codes from 33 to 127 only. ")
+    print("====================================================================================================================================")
+    count = 0
     for ascii in range(128):
         if (0 <= ascii <= 127):
             character = chr(ascii)
         else:
             character = unicode(chr(ascii), "latin1")
-        print("ASCII: " + str(ascii) + " -> " + character)
-
-
-def main():
-    ascii_table()
-    words = "ABCDEFGHIJK"
-    print("[BEGIN]" + make_words_2_codes(words) + "[END]")
-    print(make_codes_2_words(make_words_2_codes(words)))
-
-if __name__ == '__main__':
-    main()
+        
+        if ascii > 32:
+            count += 1
+            print "ASCII: " + str(ascii) + " -> " + character + "   ",
+            if count % 7 == 0:
+                print ""
+    
+    print ""
