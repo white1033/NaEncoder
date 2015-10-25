@@ -15,7 +15,7 @@ def main():
     mode = sys.argv[3] # transfer_mode
 
     # Display Ascii Table
-    #ascii_table()
+    # ascii_table()
 
     print ("[ Read file ]: " + old_file)
     words = ""

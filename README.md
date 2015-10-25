@@ -1,2 +1,2 @@
 # NaEncoder
-An idea to translate a string into a series of invisible characters, like space, tab, ...etc.
+An idea to transfer words into invisible characters, like space, tab, ...etc.
