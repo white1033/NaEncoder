@@ -81,11 +81,3 @@ def ascii_table():
         print("ASCII: " + str(ascii) + " -> " + character)
 
 
-def main():
-    ascii_table()
-    words = "ABCDEFGHIJK"
-    print("[BEGIN]" + make_words_2_codes(words) + "[END]")
-    print(make_codes_2_words(make_words_2_codes(words)))
-
-if __name__ == '__main__':
-    main()
